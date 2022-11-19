@@ -1,24 +1,20 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require(`../config/connection`);
 
-class Country extends Model{}
+class Continent extends Model{}
 
-Country.init(
+Continent.init(
     {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-        },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+            primaryKey: true,
         },
         children: {
             type: DataTypes.ARRAY(DataTypes.INTEGER),
             allowNull: true,
             references: {
-                model: `city`,
+                model: `country`,
                 key: `id`
             }
         },
@@ -28,8 +24,8 @@ Country.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: `country`
+        modelName: `continent`
     }
 );
 
-module.exports = Country;
+module.exports = Continent;

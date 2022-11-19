@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require(`../config/connection`);
 
-class Country extends Model{}
+class Attraction extends Model{}
 
-Country.init(
+Attraction.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -14,7 +14,7 @@ Country.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        children: {
+        parents: {
             type: DataTypes.ARRAY(DataTypes.INTEGER),
             allowNull: true,
             references: {
@@ -28,8 +28,8 @@ Country.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: `country`
+        modelName: `attraction`
     }
-);
+)
 
-module.exports = Country;
+module.exports = Attraction;
