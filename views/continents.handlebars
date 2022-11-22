@@ -1,5 +1,12 @@
 <section class="container">
-    <h3 class="continent-name">{{continent.name}}</h3>
-    {{#if loggedIn}}
-    <section>
+{{#if loggedIn}}
+<section class="flex-row justify-center">
+    <div class="card">
+        {{#each continents.name}}
+        <h1 class="continent-name"><a>{{this}}</a></h1>
+    </div>
+    </section>
+ {{else}}
+ <a href = "/login">You must login to view this page!</a>
 </section>
+{{/if}}
