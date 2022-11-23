@@ -12,7 +12,7 @@
 
 <body>
   <header>
-    <h1>Welcome to the Travel Buddy!</h1>
+    <h1 class="web-header">Welcome to the Travel Buddy!</h1>
   </header>
   <nav>
     <a href="/">Home</a>
@@ -41,12 +41,14 @@
     {{/if}}
   </nav>
   <main>
-    <aside>
+    <aside class="aside">
       <h2>Enjoy discovering your new destination!</h2>
     </aside>
+    {{#if loggedIn}}
     <div class="continents">
       {{{body}}}
     </div>
+    {{/if}}
   </main>
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
