@@ -1,0 +1,12 @@
+<section class="container">
+    {{#if loggedIn}}
+    <section class="flex-row justify-center">
+        {{#each city.name}}
+        <div class="card">
+            <h1 class="city-name"><a>{{this}}</a></h1>
+        </div>
+    </section>
+    {{else}}
+    <a href="/login">You must login to view this page!</a>
+</section>
+{{/if}}
