@@ -27,6 +27,10 @@ Attraction.init(
                 min: 0
             }
         },
+        description:{
+            type: Datatypes.STRING,
+            defaultValue: `sample_text`,
+        },
         city_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
