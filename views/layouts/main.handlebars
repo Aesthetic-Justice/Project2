@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/jass.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to the Travel Buddy!</h1>
+  </header>
+  <nav>
+    <a href="/">Home</a>
+    {{#if loggedIn}}
+     <section>
+        <div class="columns">
+            <div class="column is-three-fifths">
+                <h1 class="title-is-1">Travel Buddy!</h1>
+            </div>
+            <div class="column is-two-fifths">
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <div class="navbar-end">
+                        <a class="navbar-item">
+                            Home
+                        </a>
+                        <a class="navbar-item">
+                            Add new attraction
+                        </a>
+                        <button class="button is-link">Logout</button>
+                    </div>
+                </nav>
+            </div>
+    </section>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+  </nav>
+  <main>
+    <aside>
+      <h2>Enjoy discovering your new destination!</h2>
+    </aside>
+    <div class="continents">
+      {{{body}}}
+    </div>
+  </main>
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
