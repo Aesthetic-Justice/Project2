@@ -9,16 +9,17 @@ Country.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true,
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        children: {
-            type: DataTypes.ARRAY(DataTypes.INTEGER),
-            allowNull: true,
+        continent_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
-                model: `city`,
+                model: `continent`,
                 key: `id`
             }
         },

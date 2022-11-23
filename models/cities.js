@@ -9,18 +9,24 @@ City.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
+            autoIncrement: true,
         },
         name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        children: {
-            type: DataTypes.ARRAY(DataTypes.INTEGER),
-            allowNull: true,
+        country_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
-                model: `attraction`,
+                model: `country`,
                 key: `id`
             }
+        },
+        numAttraction: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0,
         },
     },
     {
