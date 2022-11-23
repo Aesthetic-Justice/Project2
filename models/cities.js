@@ -25,7 +25,6 @@ City.init(
         },
         numAttraction: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             defaultValue: 0,
         },
     },
