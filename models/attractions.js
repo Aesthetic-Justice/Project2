@@ -1,4 +1,4 @@
-const { Model, Datatypes} = require(`sequelize`);
+const { Model, DataTypes} = require(`sequelize`);
 const sequelize = require(`../config/connection`);
 
 class Attraction extends Model{}
@@ -16,11 +16,11 @@ Attraction.init(
             allowNull: false,
         },
         location_type: {
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         rating:{
-            type: Datatypes.INTEGER,
+            type: DataTypes.INTEGER,
             defaultValue: 3,
             validate:{
                 max: 5,
@@ -28,7 +28,7 @@ Attraction.init(
             }
         },
         description:{
-            type: Datatypes.STRING,
+            type: DataTypes.STRING,
             defaultValue: `sample_text`,
         },
         city_id: {
