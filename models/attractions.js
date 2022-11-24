@@ -21,10 +21,10 @@ Attraction.init(
         },
         rating:{
             type: Datatypes.INTEGER,
-            defaultValue: 0,
+            defaultValue: 3,
             validate:{
                 max: 5,
-                min: 0
+                min: 1
             }
         },
         description:{
