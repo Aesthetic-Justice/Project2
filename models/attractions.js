@@ -19,17 +19,24 @@ Attraction.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        rating:{
-            type: DataTypes.INTEGER,
-            defaultValue: 3,
-            validate:{
-                max: 5,
-                min: 1
-            }
+        // rating:{
+        //     type: Datatypes.INTEGER,
+        //     defaultValue: 0,
+        //     validate:{
+        //         max: 5,
+        //         min: 0
+        //     }
+        // },
+        filename: {
+            type: DataTypes.STRING,
+            allowNull: true,
         },
         description:{
             type: DataTypes.STRING,
             defaultValue: `sample_text`,
+        },
+        link: {
+            type: DataTypes.STRING, 
         },
         city_id: {
             type: DataTypes.INTEGER,
