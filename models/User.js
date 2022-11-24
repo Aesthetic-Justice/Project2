@@ -35,7 +35,7 @@ User.init(
                 len: [16],
             },
         },
-    },
+    },    
     {
         hooks: {
           beforeCreate: async (newUser) => {
@@ -66,6 +66,7 @@ User.init(
         underscored: true,
         modelName: `user`,
     }
+
 );
 
 module.exports = User;
