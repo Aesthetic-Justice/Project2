@@ -1,10 +1,10 @@
 const sequelize = require('../config/connection');
 const { Continent, Country, City, Attraction } = require(`../models`);
 
-const Continent_seed = require(`./continentSeedData.json`);
-const Country_seed = require(`./countrySeedData.json`);
-const City_seed = require(`./citySeedData.json`);
-const Attraction_seed = require(`./attractionSeedData.json`);
+const Continent_seed = require(`./continentSeed.json`);
+const Country_seed = require(`./countrySeed.json`);
+const City_seed = require(`./citySeed.json`);
+const Attraction_seed = require(`./attractionSeed.json`);
 
 const seedDatabase = async() => {
     await sequelize.sync({force:true});
