@@ -10,6 +10,5 @@ const continentData = [
     },
 ];
 
-const seedContinents = () => Continent.bulkCreate(continentData);
 
-module.exports = seedContinents;
+module.exports = continentData;

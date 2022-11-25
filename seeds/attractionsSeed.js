@@ -1,8 +1,6 @@
 const { Attraction } = require(`../models`);
 
 const attractionData = [
-
-
     {
         name: 'Parliament Hill and Buildings',
         location_type: 'Historical-Site',
@@ -195,101 +193,6 @@ const attractionData = [
         city_id: 7
 
     },
-    {
-        name: 'The Louvre',
-        location_type: 'Museum',
-        filename: 'louvre.jpg',
-        description: `The Louvre or the Louvre Museum is the world's most-visited museum, and historic landmark in Paris, France.
-         It's home to Leonardo da Vinci's Mona Lisa and is considered to be one of the world's greatest art museum. 
-         It has an unparalleled collection of items covering the full spectrum of art through the ages. `,
-        link: 'https://en.parisinfo.com/paris-museum-monument/71065/Musee-du-Louvre',
-        city_id: 7
-
-    },
-    {
-        name: 'The Arc de Triomphe',
-        location_type: 'Landmark',
-        filename: 'arc-de-triomphe.jpg',
-        description: `The Arc de Triomphe honors those who fought and died for France during the French Revolution and the Napoleonic Wars, 
-        with the name of all French victories and generals inscribed on its inner and outer surfaces. 
-        Under its vault lies the Tomb of the Unknown Soldier from the First World War.`,
-        link: 'https://www.paris-arc-de-triomphe.fr/en/',
-        city_id: 7
-
-    },
-    {
-        name: 'La Cite du Vin',
-        location_type: 'Museum',
-        filename: 'cite-du-vin.jpg',
-        description: `La Cite du Vin is a museum located in the city of Bordeaux that is a unique cultural venue open to all and dedicated to wine.
-         The story of wine around the world is told through a variety of virtual, auditory and kinesthetic modes such as film, music, and smell. 
-         After your visit you're invited to the eighth floor where you can taste some wine and enjoy a breathtaking view of Bordeaux.`,
-        link: 'https://www.laciteduvin.com/en',
-        city_id: 8
-
-    },
-    {
-        name: 'St. Emillon',
-        location_type: 'Town',
-        filename: 'st-emillon.jpg',
-        description: `St. Emilion is a medieval city located at the crossroads of Bordeaux, Saintonge and Perigord.
-         The village is a protected, Unesco, world heritage site and lays claim to having the oldest wine society in France. 
-         The village is located in the heart of the famous Bordeaux wine area. 
-         It was named after Emilion, a miracle working Benedictine monk who lived in a cave there between AD 750 and 767.
-        It quickly became a stop on pilgrimage routes and the village and its vineyards are now Unesco- listed.`,
-        link: 'https://www.bordeaux-tourism.co.uk/must-sees-around-bordeaux/saint-emilions-village-world-heritage-site',
-        city_id: 8
-
-    },
-    {
-        name: 'Château Pape Clément',
-        location_type: 'Vineyard',
-        filename: 'chateau-pape-clement.jpg',
-        description: `This haven of peacefulness, located on the outskirts of Bordeaux, has witnessed its 60 hectares of vines surrounding the château built in the neo-Gothic style. 
-        You have to visit this seven-century-old Graves great growth to understand the reasons for its excellence`,
-        link: 'https://www.chateau-pape-clement.fr/',
-        city_id: 8
-
-    },
-    {
-        name: 'Promenade des Anglais',
-        location_type: 'Landmark',
-        filename: 'promenade-des-anglais.jpg',
-        description: `Stroll along the Promenade des Anglais. This is a gorgeous pedestrian area that follows the curve of the Baie des Anges beaches. 
-        It is a legendary seaside boulevard that is lined with palm trees and filled with beautiful gardens.`,
-        link: 'https://www.viator.com/en-CA/tours/Nice/Nice-Promenade-des-Anglais-Walking-Tour/d478-6839P46',
-        city_id: 9
-
-    },
-    {
-        name: 'Carnival de Nice',
-        location_type: 'Festival',
-        filename: 'nide-carnival.jpg',
-        description: `Carnival de Nice has it's origins in the catholic tradition of merrymaking prior to lent. 
-        It takes place every year for two weeks in February where it hosts a wild and crazy festival that draws crowds numbering in the hundreds of thousands.
-         This carnival is one of the most well-attended and popular events in the French Riviera`,
-        link: 'https://en.nicecarnaval.com',
-        city_id: 9
-
-    },
-    {
-        name: 'Old Town',
-        location_type: 'Landmark',
-        filename: 'old-town-nice.jpg',
-        description: `This historic part of Nice feels like a medieval village with narrow streets curving between old buildings with red-tile roofs, 
-        small restaurants and open-markets.`,
-        link: 'https://frenchriviera.travel/old-town-nice/',
-        city_id: 9
-
-    },
 ]
 
-    const seedAttractions = () => Attraction.bulkCreate(attractionData);
-
-module.exports = seedAttractions;
-
-
-
-
-
-
+module.exports = attractionData;
