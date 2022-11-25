@@ -65,3 +65,5 @@ const attractionData = [
         city_id:3,
     },
 ]
+
+module.exports = attractionData;

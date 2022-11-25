@@ -39,3 +39,4 @@ const cityData = [
     }
 ];
 
+module.exports = cityData;

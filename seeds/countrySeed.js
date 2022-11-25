@@ -15,5 +15,4 @@ const countryData =[
     },
 ];
 
-const seedCountries=()=> Country.bulkCreate(countryData);
-module.exports = seedCountries;
+module.exports = countryData;
