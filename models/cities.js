@@ -23,10 +23,6 @@ City.init(
                 key: `id`
             }
         },
-        numAttraction: {
-            type: DataTypes.INTEGER,
-            defaultValue: 0,
-        },
     },
     {
         sequelize,
