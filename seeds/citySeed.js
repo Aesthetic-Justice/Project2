@@ -39,3 +39,6 @@ const cityData = [
     }
 ];
 
+const seedCities = () => City.bulkCreate(cityData);
+
+module.exports = seedCities;
