@@ -6,26 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
 <body>
   <div class="columns">
-    <div class="column three-fifths">
+    <div class="column is-four-fifths">
       <header>
-        <h1 class="web-header title-is-1">Welcome to the Travel Buddy!</h1>
+        <h1 class="web-header title">TRAVEL BUDDY</h1>
     </div>
     <nav>
       {{#if loggedIn}}
       {{!-- <section> --}}
         <div class="column float-right">
-          <nav class="navbar" role="navigation" aria-label="main navigation">
+          <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
             <div class="navbar-end">
-              <a class="navbar-item" href="/">Home</a>
-              <a class="navbar-item" href="/controllers/home-routes.js">
+              <a class="navbar-item has-text-white-bis has-background-dark" href="/">Home</a>
+              <a class="navbar-item has-text-white-bis has-background-dark" href="/controllers/home-routes.js">
                 Add new attraction
               </a>
-              <button class="button is-link">Logout</button>
+              <button class="button has-background-grey-light">Logout</button>
             </div>
           </nav>
         </div>
@@ -37,19 +40,21 @@
   {{/if}}
   </nav>
   <main>
-    <div class="columns">
-      <div class="column one-fifth">
-        <figure class="image is-3by1">
-          <img src="/images/backgrounds/countries.jpg" alt="World Map">
-        </figure>
-      </div>
-      <div class="continents column four-fifths">
+    <section>
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <aside class="description"> Simply search your location and find activities suitable to your needs!</aside>
+
+        </div>
         {{#if loggedIn}}
-        {{{body}}}
+        <div class="continents column is-four-fifths is-flex-direction-row">
+          {{{body}}}
+        </div>
         {{/if}}
       </div>
+
+    </section>
   </main>
-  </div>
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
