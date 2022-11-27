@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model:Country,
-              attributes: ['id', 'name', 'filename'],   
+              attributes: ['id', 'name',],   
                 },
             ],
         });
@@ -33,11 +33,10 @@ router.get('/continents/:id', async (req, res) => {
         const dbContinents = await Continent.findByPk(req.params.id,{
             include: [
                 {
-                    model: countries,
+                    model: Country,
                     attributes: [
                         'id',
                         'name',
-                        'filename'
                     ],
                 },
             ],
@@ -51,13 +50,13 @@ router.get('/continents/:id', async (req, res) => {
 });
 
 //get all countries for homepage
-router.get('/countries/', async (req, res) => {
+router.get('/country/', async (req, res) => {
     try {
         const dbCountry = await Country.findAll ({
             include: [
                 {
                     model:City,
-              attributes: ['id', 'name', 'filename'],   
+              attributes: ['id', 'name', 'continent_id'],   
                 },
             ],
         });
@@ -65,7 +64,7 @@ router.get('/countries/', async (req, res) => {
         const allCountries = dbCountry.map((countries) =>
         countries.get({ plain: true})
         );
-        res.render('homepage', {
+        res.render('country', {
             allCountries,
             loggedIn: req.session.loggedIn,
         });   
@@ -85,7 +84,7 @@ router.get('/countries/id:', async (req, res) => {
                     attributes: [
                         'id',
                         'name',
-                        'filename'
+                        'continent_id'
                     ],
                 },
             ],
@@ -105,7 +104,7 @@ router.get('/cities/', async (req, res) => {
             include: [
                 {
                     model:Attraction,
-              attributes: ['id', 'name', 'filename'],   
+              attributes: ['id', 'name', 'country_id'],   
                 },
             ],
         });
@@ -113,7 +112,7 @@ router.get('/cities/', async (req, res) => {
         const allCities = dbCities.map((cities) =>
         cities.get({ plain: true})
         );
-        res.render('homepage', {
+        res.render('city', {
             allCities,
             loggedIn: req.session.loggedIn,
         });   
@@ -133,13 +132,13 @@ router.get('/cities/id:', async (req, res) => {
                     attributes: [
                         'id',
                         'name',
-                        'filename'
+                        'country_id'
                     ],
                 },
             ],
         });
     const cities = dbCities.get({ plain: true});
-    res.render('cities', { cities, loggedIn: req.session.loggedIn });
+    res.render('city', { cities, loggedIn: req.session.loggedIn });
     }catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -153,7 +152,7 @@ router.get('/attractions/', async (req, res) => {
             include: [
                 {
                     model:Attraction,
-              attributes: ['id', 'name', 'filename'],   
+              attributes: ['id', 'name', 'location_type', 'filename', 'description', 'link', 'city_id'],   
                 },
             ],
         });
