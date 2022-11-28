@@ -20,7 +20,6 @@
     </div>
     <nav>
       {{#if loggedIn}}
-      {{!-- <section> --}}
         <div class="column float-right">
           <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
             <div class="navbar-end">
@@ -28,7 +27,7 @@
               <a class="navbar-item has-text-white-bis has-background-dark" href="/controllers/home-routes.js">
                 Add new attraction
               </a>
-              <button class="button has-background-grey-light">Logout</button>
+              <button class="button has-background-grey-light" id="logout">Logout</button>
             </div>
           </nav>
         </div>
@@ -44,7 +43,6 @@
       <div class="columns">
         <div class="column is-one-fifth">
           <aside class="description"> Simply search your location and find activities suitable to your needs!</aside>
-
         </div>
         {{#if loggedIn}}
         <div class="continents column is-four-fifths is-flex-direction-row">

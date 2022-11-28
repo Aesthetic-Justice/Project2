@@ -1,10 +1,11 @@
-{{#each cities as |city|}}
 <div class="column is-half">
-  <div class="card">
+    <div class="card"></div>
+    <h1>Cities</h1>
+    {{#each allCities as |city|}}
     <a href="/city/{{id}}">
-      <header>{{name}}</header>
-      <img src="/images/{{filename}}" alt="">
+        <li>{{name}}</li>
     </a>
-  </div>
+
+    {{/each}}
 </div>
-{}
+</div>

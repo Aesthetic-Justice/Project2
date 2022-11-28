@@ -1,3 +1,10 @@
-{{#each continents as |continent|}}
-{{> continent-details}}
+{{#each allContinents as |continent|}}
+<div class="column is-half">
+  <div class="card">
+    <a href="/continent/{{id}}">
+      <header class="continent-name">{{name}}</header>
+      <img src="/images/{{filename}}" alt="">
+    </a>
+  </div>
+</div>
 {{/each}}
