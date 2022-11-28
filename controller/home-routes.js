@@ -1,52 +1,50 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Continent, Country, City, Attraction} = require('../models');
+const { Continent, Country, City, Attraction } = require('../models');
 
 //get all continents for homepage // WORKS
 router.get('/', async (req, res) => {
     try {
-        const dbContinents = await Continent.findAll ({
+        const dbContinents = await Continent.findAll({
             include: [
                 {
-                    model:Country,
-                    attributes: ['id', 'name',],   
+                    model: Country,
+                    attributes: ['id', 'name',],
                 },
             ],
         });
 
         const allContinents = dbContinents.map((continents) =>
-        continents.get({ plain: true})
+            continents.get({ plain: true })
         );
         res.render('homepage', {
             allContinents,
             loggedIn: req.session.loggedIn,
-        });   
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
 
-// Get one continent // MAYBE WORKING - FIX GET ERROR
+// Get one continent
 router.get('/continent/:id', async (req, res) => {
-    try{
+    try {
         const dbContinents = await Continent.findByPk(req.params.id, {
-            
+
             include: [
                 {
                     model: Country,
                     attributes: [
-                         'id',
+                        'id',
                         'name',
                     ],
                 },
             ],
         });
-     const continents = dbContinents?.get({ plain: true});
-     console.log('continents',continents)
-     console.log('dbContinents', dbContinents)
-    res.render('continents', { continents, loggedIn: req.session.loggedIn });
-    }catch (err) {
+        const continents = dbContinents?.get({ plain: true });
+        res.render('continents', { continents, loggedIn: req.session.loggedIn });
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -55,32 +53,32 @@ router.get('/continent/:id', async (req, res) => {
 //get all countries for homepage // WORKS 
 router.get('/country/', async (req, res) => {
     try {
-        const dbCountry = await Country.findAll ({
+        const dbCountry = await Country.findAll({
             include: [
                 {
                     model: City,
-              attributes: ['id', 'name'],   
+                    attributes: ['id', 'name'],
                 },
             ],
         });
 
         const allCountries = dbCountry.map((countries) =>
-        countries.get({ plain: true})
+            countries.get({ plain: true })
         );
         res.render('country', {
             allCountries,
             loggedIn: req.session.loggedIn,
-        });   
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
 
-//Get one country for homepage // MAYBE WORKS - FIX GET ERROR
+//Get one country for homepage
 router.get('/country/:id', async (req, res) => {
-    try{
-        const dbCountries = await Country.findByPk(req.params.id,{
+    try {
+        const dbCountries = await Country.findByPk(req.params.id, {
             include: [
                 {
                     model: City,
@@ -91,9 +89,9 @@ router.get('/country/:id', async (req, res) => {
                 },
             ],
         });
-    const country = dbCountries.get({ plain: true});
-    res.render('country', { country, loggedIn: req.session.loggedIn });
-    }catch (err) {
+        const country = dbCountries.get({ plain: true });
+        res.render('country', { country, loggedIn: req.session.loggedIn });
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -102,23 +100,22 @@ router.get('/country/:id', async (req, res) => {
 //get all cities for homepage // HANDLEBARS ISSUE - EACH DOESNT MATCH
 router.get('/cities/', async (req, res) => {
     try {
-        const dbCities = await City.findAll ({
+        const dbCities = await City.findAll({
             include: [
                 {
-                    model:Attraction,
-              attributes: ['id', 'name','filename'],   
+                    model: Attraction,
+                    attributes: ['id', 'name', 'filename'],
                 },
             ],
         });
 
         const allCities = dbCities.map((cities) =>
-        cities.get({ plain: true})
+            cities.get({ plain: true })
         );
         res.render('city', {
             allCities,
-            loggedIn:true 
-            //req.session.loggedIn,
-        });   
+            loggedIn: req.session.loggedIn,
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -127,8 +124,8 @@ router.get('/cities/', async (req, res) => {
 
 // Get one city // MAYBE WORKS - FIX GET ERROR
 router.get('/city/:id', async (req, res) => {
-    try{
-        const dbCities = await City.findByPk(req.params.id,{
+    try {
+        const dbCities = await City.findByPk(req.params.id, {
             include: [
                 {
                     model: Attraction,
@@ -136,15 +133,15 @@ router.get('/city/:id', async (req, res) => {
                         'id',
                         'name',
                         'filename'
-                        
-                    
+
+
                     ],
                 },
             ],
         });
-    const cities = dbCities.get({ plain: true});
-    res.render('city', { cities, loggedIn: req.session.loggedIn });
-    }catch (err) {
+        const cities = dbCities.get({ plain: true });
+        res.render('city', { cities, loggedIn: req.session.loggedIn });
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -153,15 +150,15 @@ router.get('/city/:id', async (req, res) => {
 //get all attractions for homepage // ATTRACTION TO ATTRACTION ISNT A RELATIONSHIP
 router.get('/attractions', async (req, res) => {
     try {
-        const dbAttractions = await Attraction.findAll ();
+        const dbAttractions = await Attraction.findAll();
 
         const allAttractions = dbAttractions.map((attractions) =>
-        attractions.get({ plain: true})
+            attractions.get({ plain: true })
         );
         res.render('attractions', {
             allAttractions,
             loggedIn: req.session.loggedIn,
-        });   
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -170,29 +167,28 @@ router.get('/attractions', async (req, res) => {
 
 // Get one attraction // ATTRACTION TO ATTRACTION ISNT A RELATIONSHIP
 router.get('/attraction/:id', async (req, res) => {
-    try{
+    try {
         const dbAttractions = await Attraction.findByPk(req.params.id);
-        const attractions = dbAttractions.get({ plain: true});
-    res.render('attractions', { attractions, loggedIn: req.session.loggedIn });
-    }catch (err) {
+        const attractions = dbAttractions.get({ plain: true });
+        res.render('attractions', { attractions, loggedIn: req.session.loggedIn });
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
 
-
-
-
-
 // Login route
 // WORKS BUT DOESNT RENDER LOGIN HANDLEBARS
 router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
+    console.log(req.session.loggedIn);
+    if (req.session.loggedIn == undefined) {
+        req.session.loggedIn = false;
+    }
+    else if (req.session.loggedIn == true) {
+        res.redirect('/');
+        return;
     }
     res.render('login');
-  });
-  
-  module.exports = router;
+});
 
+module.exports = router;
