@@ -1,0 +1,12 @@
+{{#each attractions as |attraction|}}
+<div class="column is-one-third">
+  <div class="card">
+    <div class="/attractions/{{id}}">
+      <header>{{attraction.name}}</header>
+    </div>
+      <img src="/images/{{attraction.filename}}" alt="">
+      <p>{{attraction.description}}</p>
+      <a>{{attraction.link}}</a>
+  </div>
+</div>
+{{/each}}

@@ -28,9 +28,9 @@ router.get('/', async (req, res) => {
 });
 
 // Get one continent
-router.get('/continents/:id', async (req, res) => {
-    try {
-        const dbContinents = await Continent.findByPk(req.params.id, {
+router.get('/continent/:id', async (req, res) => {
+    try{
+        const dbContinents = await Continent.findByPk(req.params.id,{
             include: [
                 {
                     model: Country,
@@ -75,23 +75,22 @@ router.get('/country/', async (req, res) => {
 });
 
 //Get one country for homepage
-router.get('/countries/id:', async (req, res) => {
-    try {
-        const dbCountries = await Country.findByPk(req.params.id, {
+router.get('/country/:id', async (req, res) => {
+    try{
+        const dbCountries = await Country.findByPk(req.params.id,{
             include: [
                 {
                     model: cities,
                     attributes: [
                         'id',
                         'name',
-                        'continent_id'
                     ],
                 },
             ],
         });
-        const country = dbCountries.get({ plain: true });
+    const country = dbCountries.get({ plain: true});
         res.render('country', { country, loggedIn: req.session.loggedIn });
-    } catch (err) {
+    }catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
@@ -104,7 +103,7 @@ router.get('/cities/', async (req, res) => {
             include: [
                 {
                     model: Attraction,
-                    attributes: ['id', 'name', 'country_id'],
+                    attributes: ['id', 'name', 'filename'],   
                 },
             ],
         });
@@ -123,9 +122,9 @@ router.get('/cities/', async (req, res) => {
 });
 
 // Get one city
-router.get('/cities/id:', async (req, res) => {
-    try {
-        const dbCities = await City.findByPk(req.params.id, {
+router.get('/cities/:id', async (req, res) => {
+    try{
+        const dbCities = await City.findByPk(req.params.id,{
             include: [
                 {
                     model: Attraction,
