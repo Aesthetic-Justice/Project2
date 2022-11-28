@@ -6,49 +6,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/jass.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
 <body>
-  <header>
-    <h1 class="web-header">Welcome to the Travel Buddy!</h1>
-  </header>
-  <nav>
-    <a href="/">Home</a>
-    {{#if loggedIn}}
-     <section>
-        <div class="columns">
-            <div class="column is-three-fifths">
-                <h1 class="title-is-1">Travel Buddy!</h1>
+  <div class="columns">
+    <div class="column is-four-fifths">
+      <header>
+        <h1 class="web-header title">TRAVEL BUDDY</h1>
+    </div>
+    <nav>
+      {{#if loggedIn}}
+      {{!-- <section> --}}
+        <div class="column float-right">
+          <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
+            <div class="navbar-end">
+              <a class="navbar-item has-text-white-bis has-background-dark" href="/">Home</a>
+              <a class="navbar-item has-text-white-bis has-background-dark" href="/controllers/home-routes.js">
+                Add new attraction
+              </a>
+              <button class="button has-background-grey-light">Logout</button>
             </div>
-            <div class="column is-two-fifths">
-                <nav class="navbar" role="navigation" aria-label="main navigation">
-                    <div class="navbar-end">
-                        <a class="navbar-item">
-                            Home
-                        </a>
-                        <a class="navbar-item">
-                            Add new attraction
-                        </a>
-                        <button class="button is-link">Logout</button>
-                    </div>
-                </nav>
-            </div>
-    </section>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
+          </nav>
+        </div>
+
+        </header>
+  </div>
+  {{else}}
+  <a href="/login">Login</a>
+  {{/if}}
   </nav>
   <main>
-    <aside class="aside">
-      <h2>Enjoy discovering your new destination!</h2>
-    </aside>
-    {{#if loggedIn}}
-    <div class="continents">
-      {{{body}}}
-    </div>
-    {{/if}}
+    <section>
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <aside class="description"> Simply search your location and find activities suitable to your needs!</aside>
+
+        </div>
+        {{#if loggedIn}}
+        <div class="continents column is-four-fifths is-flex-direction-row">
+          {{{body}}}
+        </div>
+        {{/if}}
+      </div>
+
+    </section>
   </main>
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
