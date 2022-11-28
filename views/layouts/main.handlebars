@@ -19,7 +19,7 @@
         <div class="container">
           <div class="navbar-brand">
             <h1 class="web-header title">TRAVEL BUDDY</h1>
-            <span class="navbar-burger" data-target="navbarMenuHeroA">
+            <span class="navbar-burger" aria-label="menu" data-target="navbarMenuHeroA">
               <span></span>
               <span></span>
               <span></span>
@@ -32,17 +32,16 @@
               <a class="navbar-item has-text-white-bis has-background-dark" href="/controllers/home-routes.js">
                 Add new attraction
               </a>
-              <button class="button has-background-grey-light">Logout</button>
+              <button class="navbar-item button has-background-grey-light">Logout</button>
               {{else}}
-              <a class="button is-active has-background-grey-light" href="/login">
-                <strong>Sign up</strong>
+              <a class="navbar-item" href="/login">
+                Sign up
               </a>
-              <span></span>
-              <a class="button is-active has-background-grey-light">
-                <strong>Log In</strong>
+              <a class="navbar-item">
+                Log In
               </a>
+              {{/if}}
             </div>
-            {{/if}}
           </div>
         </div>
       </nav>
