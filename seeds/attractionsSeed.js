@@ -6,8 +6,7 @@ const attractionData = [
         location_type: 'Historical-Site',
         filename: 'parliament.jpg',
         description: `Three Gothic Revival-style buildings, overlooking the Ottawa River,
-        Parliament Hill houses the offices of the members of Parliament, the House of Commons and the Senate. 
-        Free guided tours delve into Canadian history and explain the Canadian political system`,
+        Parliament Hill houses the offices of the members of Parliament, the House of Commons and the Senate.`,
         link: 'https://visit.parl.ca/sites/Visit/default/en_CA',
         city_id: 1
 
@@ -29,8 +28,7 @@ const attractionData = [
         filename: 'nordik-spa-nature.jpg',
         description: `The Nordik Spa is located 20 minutes outside of Ottawa in Chelsea, QC.
         The spa includes many relaxation techniques that are taken from Nordic countries. It 
-        encompasses varying baths, saunas, steam rooms and a salt pool. The Nordik is a wonderful
-        place to unwind`,
+        encompasses varying baths, saunas, steam rooms and a salt pool.`,
         link: 'https://chelsea.lenordik.com/en/',
         city_id: 1
 
@@ -39,8 +37,7 @@ const attractionData = [
         name: 'Mount Royal Park',
         location_type: 'Park',
         filename: 'mount-royal.jpg',
-        description: `Inaugurated in 1876, the Mount Royal Park was designed by Frederick Law Olmsted, 
-        the highly skilled designer behind New York's Central Park. 
+        description: `Inaugurated in 1876, the Mount Royal Park was designed by Frederick Law Olmsted, designer behind New York's Central Park. 
         It is an ideal site for admiring a wide variety of plants and birds or for enjoying outdoor activities.`,
         link: 'https://www.mtl.org/en/what-to-do/activities/mount-royal-park',
         city_id: 2
@@ -69,8 +66,7 @@ const attractionData = [
         location_type: 'Park',
         filename: 'stanley-park.jpg',
         description: `North America's third-largest park draws eight million visitors per year, 
-        many of whom may skate or walk past you on the Seawall, a scenic, 5.5-mile path running along the water on the park's perimeter.
-        It's just one of many trails among the park's 1,000 acres, which also house an aquarium, nature center and other recreational facilities.`,
+        many of whom may skate or walk past you on the 5.5-mile path running along the water on the park's perimeter.`,
         link: 'https://vancouver.ca/parks-recreation-culture/stanley-park.aspx',
         city_id: 3
     },
@@ -96,8 +92,7 @@ const attractionData = [
         location_type: 'Park',
         filename: 'central-park-manhattan.jpg',
         description: `For more than 150 years, visitors have flocked to Central Park's 843 green acres in the heart of Manhattan. 
-        Since 1980, the Park has been managed by the Central Park Conservancy, in partnership with the public. 
-        Central Park is open 6 am to 1 am daily.`,
+        Since 1980, the Park has been managed by the Central Park Conservancy, in partnership with the public.`,
         link: 'https://www.centralpark.com/',
         city_id: 4
     },
@@ -107,7 +102,7 @@ const attractionData = [
         filename: 'empire-state.jpg',
         description: `The Empire State Building is the World's Most Famous Building. 
         It rises 1,454 ft from ground to antenna & features the only 360 degree open-air vantage point of Midtown. 
-        The 86th & 102nd Fl Observatories are open daily, M-Th 10AM-10PM, Fr-Su 9AM-10PM. On a clear day you can see up to 6 states.`,
+        The 86th & 102nd Fl Observatories are open daily`,
         link: 'https://www.esbnyc.com/',
         city_id: 4
     },
@@ -116,7 +111,7 @@ const attractionData = [
         location_type: 'Museum',
         filename: 'moma.jpg',
         description: `At New York City's most visited museum and attraction, you will experience over 5,000 years of art from around the world.
-         The Met is for anyone as a source of inspiration, insight and understanding. You can learn, escape, play, dream, discover, connect.`,
+         The Met is for anyone as a source of inspiration, insight and understanding.`,
         link: 'https://www.moma.org/',
         city_id: 4
     },
@@ -125,8 +120,7 @@ const attractionData = [
         location_type: 'Theme Park',
         filename: 'universal-studios-hollywood.jpg',
         description: `Get ready for the ultimate Hollywood experience! Find a full day of action-packed entertainment all in one place: 
-        thrilling theme park rides and shows, a real working movie studio, and Los Angeles' best shops, restaurants and cinemas at CityWalk. 
-        Universal Studios Hollywood is a unique experience that's fun for the whole family`,
+        thrilling theme park rides and shows, a real working movie studio, and Los Angeles' best shops, restaurants and cinemas at CityWalk.`,
         link: 'https://www.universalstudioshollywood.com/web/en/us',
         city_id: 5
 
@@ -146,8 +140,7 @@ const attractionData = [
         location_type: 'Observatory',
         filename: 'griffith-observatory.jpg',
         description: `A public observatory owned and operated by the City of Los Angeles for the benefit of all. 
-        Located in on Mount Hollywood in Griffith Park, the Observatory offers a planetarium, exhibits, public telescopes, cafe, bookstore, and the best views of the Los Angeles basin. 
-        Admission is free, and visitors may drive directly to the Observatory and park in its lots and roads.`,
+        Located in on Mount Hollywood in Griffith Park, the Observatory offers a planetarium, exhibits, public telescopes, cafe and a bookstore.`,
         link: 'https://griffithobservatory.org/',
         city_id: 5
 
@@ -177,8 +170,7 @@ const attractionData = [
         location_type: 'Zoo',
         filename: 'crocodile-exhibit.jpg',
         description: `Zoo Miami today occupies almost 750 acres, and is home to more than 3,000 animals representing over 500 different species. 
-        Of this population, more than 40 species are classified as endangered. The zoo also houses more than 1,000 species of trees, palms and other plants, 
-        and over 100 special exhibits showcasing a broad number of species and scientific topics. `,
+        Of this population, more than 40 species are classified as endangered.`,
         link: 'https://www.zoomiami.org/',
         city_id: 6
 
@@ -188,7 +180,7 @@ const attractionData = [
         location_type: 'Landmark',
         filename: 'eiffel-tower.jpg',
         description: `For 130 Years, the Eiffel Tower has been a powerful and distinctive symbol of the city of Paris, and by extension, of France. 
-        It was built by Gustave Eiffel for the 1889 Exposition Universelle, which was to celebrate the 100th year anniversary of the French Revolution.`,
+        It was built for the 1889 Exposition Universelle to celebrate the 100th year anniversary of the French Revolution.`,
         link: 'https://www.toureiffel.paris/en',
         city_id: 7
 
