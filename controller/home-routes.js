@@ -19,7 +19,8 @@ router.get('/', async (req, res) => {
         );
         res.render('homepage', {
             allContinents,
-            loggedIn: req.session.loggedIn,
+            loggedIn: true
+            // req.session.loggedIn,
         });   
     } catch (err) {
         console.log(err);
@@ -28,7 +29,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get one continent
-router.get('/continents/:id', async (req, res) => {
+router.get('/continent/:id', async (req, res) => {
     try{
         const dbContinents = await Continent.findByPk(req.params.id,{
             include: [
@@ -42,7 +43,7 @@ router.get('/continents/:id', async (req, res) => {
             ],
         });
     const continents = dbContinents.get({ plain: true});
-    res.render('continents', { continents, loggedIn: req.session.loggedIn });
+    res.render('continents', { continents, loggedIn: true });
     }catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -75,7 +76,7 @@ router.get('/country/', async (req, res) => {
 });
 
 //Get one country for homepage
-router.get('/countries/id:', async (req, res) => {
+router.get('/country/:id', async (req, res) => {
     try{
         const dbCountries = await Country.findByPk(req.params.id,{
             include: [
@@ -84,13 +85,12 @@ router.get('/countries/id:', async (req, res) => {
                     attributes: [
                         'id',
                         'name',
-                        'continent_id'
                     ],
                 },
             ],
         });
     const country = dbCountries.get({ plain: true});
-    res.render('country', { country, loggedIn: req.session.loggedIn });
+    res.render('country', { country, loggedIn: true });
     }catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -103,8 +103,8 @@ router.get('/cities/', async (req, res) => {
         const dbCities = await City.findAll ({
             include: [
                 {
-                    model:Attraction,
-              attributes: ['id', 'name', 'country_id'],   
+                    model: Attraction,
+              attributes: ['id', 'name', 'filename'],   
                 },
             ],
         });
@@ -123,7 +123,7 @@ router.get('/cities/', async (req, res) => {
 });
 
 // Get one city
-router.get('/cities/id:', async (req, res) => {
+router.get('/cities/:id', async (req, res) => {
     try{
         const dbCities = await City.findByPk(req.params.id,{
             include: [
