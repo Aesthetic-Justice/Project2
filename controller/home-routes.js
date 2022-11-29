@@ -127,8 +127,6 @@ router.get('/city/:id', withAuth, async (req, res) => {
                         'id',
                         'name',
                         'filename'
-
-
                     ],
                 },
             ],
@@ -187,7 +185,7 @@ router.get('/attractions/add', withAuth, async (req, res) => {
         const cities = dbCities.map(city => city.get({ plain: true }));
         const dbAttractions = await Attraction.findAll({ attributes: ['location_type'], group: "location_type" });
         const attractions = dbAttractions.map(attraction => attraction.get({ plain: true }));
-        res.render('addAttraction', { cities, attractions });
+        res.render('addAttraction', { cities, attractions, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.log(err);
         res.render('error', { err });
