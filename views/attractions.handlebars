@@ -1,7 +1,8 @@
 <section>
-<header class="city-name">{{cities.name}}</header>
+<div class="card is-centered">
+<header class="card-name">{{cities.name}}</header>
 <div class="column">
- <section class="flex-row justify-center">
+ <section class="flex-row justify-center card-content">
     {{#each cities.attractions as |attraction|}}
     {{> attraction-details}}
     {{/each}}
