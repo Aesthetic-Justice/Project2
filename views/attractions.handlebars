@@ -1,12 +1,11 @@
-{{#each attractions as |attraction|}}
-<div class="column is-one-third">
-  <div class="card">
-    <div class="/attractions/{{id}}">
-      <header>{{attraction.name}}</header>
-    </div>
-      <img src="/images/{{attraction.filename}}" alt="">
-      <p>{{attraction.description}}</p>
-      <a>{{attraction.link}}</a>
+<section>
+<h3 class="city-name">{{cities.name}}</h3>
+<div class="column">
+ <section class="flex-row justify-center">
+    {{#each cities.attractions as |attraction|}}
+    {{> attraction-details}}
+    {{/each}}
+  </section>
   </div>
 </div>
-{{/each}}
+</section>

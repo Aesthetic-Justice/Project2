@@ -1,11 +1,11 @@
+<section>
+<h3 class="country-name">{{country.name}}</h3>
 <div class="column is-half">
-    <div class="card"></div>
-    <h1>Cities</h1>
-    {{#each allCities as |city|}}
-    <a href="/city/{{id}}">
-        <li>{{name}}</li>
-    </a>
-
+ <section class="flex-row justify-center">
+    {{#each country.cities as |city|}}
+    {{> city-details}}
     {{/each}}
+  </section>
+  </div>
 </div>
-</div>
+</section>
