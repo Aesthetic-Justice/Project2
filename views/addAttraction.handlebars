@@ -1,8 +1,8 @@
 <div class="select">
-  <select>
+  <select id="city-dropdown">
     <option>Select city</option>
 {{#each cities as |city|}}
-    <option class="city-name">{{name}}</option>
+    <option class="city-name" value="{{id}}">{{name}}</option>
     {{/each}}
   </select>
 </div>

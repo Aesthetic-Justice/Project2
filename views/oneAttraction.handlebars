@@ -4,7 +4,11 @@
       <header class="card-name">{{attractions.name}}</header>
     </div>
     <div class="card-body">
+      {{#if attractions.filename}}
       <img src="/images/attractions/{{attractions.city.name}}/{{attractions.filename}}" alt="{{attractions.name}}" style="width:150px;height:150px;">
+      {{else}}
+      <img src="/images/backgrounds/countries.jpg" alt="" style="width:150px;height:150px;">
+      {{/if}}
       <p>{{attractions.description}}</p>
       <a href="{{attractions.link}}">{{attractions.name}} webpage</a>
     </div>
