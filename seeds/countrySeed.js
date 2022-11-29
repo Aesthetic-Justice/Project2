@@ -1,16 +1,19 @@
-const { Country }= require('../models');
+const { Country } = require('../models');
 
-const countryData =[
+const countryData = [
     {
-        name: 'Canada', 
+        id: 1,
+        name: 'Canada',
         continent_id: 1
-    }, 
+    },
     {
-        name: 'U.S.A', 
+        id: 2,
+        name: 'U.S.A',
         continent_id: 1
-    }, 
+    },
     {
-        name: 'France', 
+        id: 3,
+        name: 'France',
         continent_id: 2
     },
 ];

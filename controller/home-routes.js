@@ -2,14 +2,14 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Continent, Country, City, Attraction } = require('../models');
 
-//get all continents for homepage // WORKS
+//get all continents for homepage
 router.get('/', async (req, res) => {
     try {
         const dbContinents = await Continent.findAll({
             include: [
                 {
                     model: Country,
-                    attributes: ['id', 'name','continent_id'],
+                    attributes: ['id', 'name'],
                 },
             ],
         });
@@ -35,7 +35,7 @@ router.get('/continent/:id', async (req, res) => {
             include: [
                 {
                     model: Country,
-                    attributes: ['id', 'name','continent_id'],
+                    attributes: ['id', 'name'],
                 },
             ],
         });
@@ -54,7 +54,7 @@ router.get('/country/', async (req, res) => {
             include: [
                 {
                     model: City,
-                    attributes: ['id', 'name',`country_id`],
+                    attributes: ['id', 'name'],
                 },
             ],
         });
@@ -62,7 +62,7 @@ router.get('/country/', async (req, res) => {
         const allCountries = dbCountry.map((countries) =>
             countries.get({ plain: true })
         );
-        res.render('country', {
+        res.render('city', {
             allCountries,
             loggedIn: req.session.loggedIn,
         });
@@ -79,19 +79,19 @@ router.get('/country/:id', async (req, res) => {
             include: [
                 {
                     model: City,
-                    attributes: ['id', 'name',`country_id`],
+                    attributes: ['id', 'name'],
                 },
             ],
         });
         const country = dbCountries.get({ plain: true });
-        res.render('country', { country, loggedIn: req.session.loggedIn });
+        res.render('city', { country, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
 
-//get all cities for homepage // HANDLEBARS ISSUE - EACH DOESNT MATCH
+//get all cities for homepage 
 router.get('/cities/', async (req, res) => {
     try {
         const dbCities = await City.findAll({
@@ -133,14 +133,14 @@ router.get('/city/:id', async (req, res) => {
             ],
         });
         const cities = dbCities.get({ plain: true });
-        res.render('city', { cities, loggedIn: req.session.loggedIn });
+        res.render('attractions', { cities, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
 
-//get all attractions for homepage // ATTRACTION TO ATTRACTION ISNT A RELATIONSHIP
+//get all attractions for homepage 
 router.get('/attractions', async (req, res) => {
     try {
         const dbAttractions = await Attraction.findAll();
@@ -158,12 +158,21 @@ router.get('/attractions', async (req, res) => {
     }
 });
 
-// Get one attraction // ATTRACTION TO ATTRACTION ISNT A RELATIONSHIP
+// Get one attraction 
 router.get('/attraction/:id', async (req, res) => {
     try {
-        const dbAttractions = await Attraction.findByPk(req.params.id);
+        const dbAttractions = await Attraction.findByPk(req.params.id,{
+             include: [
+            {
+                model: City,
+                attributes: [
+                    'name',
+                ],
+            },
+        ],
+    });
         const attractions = dbAttractions.get({ plain: true });
-        res.render('attractions', { attractions, loggedIn: req.session.loggedIn });
+        res.render('oneAttraction', { attractions, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -171,7 +180,6 @@ router.get('/attraction/:id', async (req, res) => {
 });
 
 // Login route
-// WORKS BUT DOESNT RENDER LOGIN HANDLEBARS
 router.get('/login', (req, res) => {
     console.log(req.session.loggedIn);
     if (req.session.loggedIn == undefined) {

@@ -1,39 +1,39 @@
 const { City } = require ('../models')
 
 const cityData = [
-    {
+    {   id: 1,
         name: 'Ottawa', 
         country_id: 1, 
     }, 
-    {
+    {   id: 2,
         name: 'Montreal', 
         country_id: 1, 
     }, 
-    {
+    {   id: 3,
         name: 'Vancouver', 
         country_id: 1, 
     }, 
-    {
+    {   id: 4,
         name: 'New York City', 
         country_id: 2, 
     }, 
-    {
+    {   id: 5,
         name: 'Los Angeles', 
         country_id: 2, 
     }, 
-    {
+    {  id: 6,
         name: 'Miami', 
         country_id: 2, 
     }, 
-    {
+    {   id: 7,
         name: 'Paris', 
         country_id: 3, 
     }, 
-    {
+    {   id: 8,
         name: 'Bordeaux', 
         country_id: 3, 
     }, 
-    {
+    {  id: 9,
         name: 'Nice', 
         country_id: 3, 
     }
