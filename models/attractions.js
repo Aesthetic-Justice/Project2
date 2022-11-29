@@ -32,7 +32,7 @@ Attraction.init(
             allowNull: true,
         },
         description:{
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(1000),
             defaultValue: `sample_text`,
         },
         link: {

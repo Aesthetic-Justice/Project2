@@ -1,13 +1,12 @@
 const router = require('express').Router();
-//const Post = require("../../models/Post")
+const { Attraction } = require('../../models')
 
-router.post('/post', async (req, res) => {
+router.post('addAttractions', async (req, res) => {
     try {
-        const dbPostData = await Post.create({
-            title: req.body.title,
+        const dbPostData = await Attraction.create({
+            name: req.body.name,
             description: req.body.description,
             location_type: req.body.location_type,
-            rating: req.body.rating
         });
         res.status(200).json(dbPostData);
     } catch (err) {
@@ -16,7 +15,7 @@ router.post('/post', async (req, res) => {
     }
 });
 
-router.delete('/post/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const dbPostData = await Post.destroy({
             where: {
@@ -29,3 +28,5 @@ router.delete('/post/:id', async (req, res) => {
         res.status(500).json(err)
     }
 });
+
+module.exports = router

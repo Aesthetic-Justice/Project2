@@ -1,13 +1,14 @@
 const { Continent } = require ('../models');
 
 const continentData = [
-    {
+    {   id: 1,
         name: 'North America',
-        id: 1
+        filename: 'north-america.jpg'
     }, 
 
-    {
-        name: 'Europe',
+    {   id: 2,
+        name: 'Europe', 
+        filename:'europe.jpg', 
         
     },
 ];

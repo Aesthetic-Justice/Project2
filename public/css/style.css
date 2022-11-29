@@ -1,0 +1,64 @@
+:root {
+    --dark:rgb(58, 53, 53);
+    --light: white;
+    --grey: grey; 
+}
+
+html{
+    background-color:var(--dark);
+}
+main{
+    margin-top: 2%;
+}
+
+.navbar{ 
+    background-color:rgba(0, 0, 0, 0.614);
+    font-style: oblique;
+    padding: 20px;
+
+}
+
+.web-header{ 
+    padding: 20px;
+    color: var(--light);
+    border-radius: 10px;
+    font-family: 'Oswald', sans-serif;
+
+}
+
+.description{
+    font-family: 'Oswald', sans-serif;
+    font-size:x-large;
+    color: var(--grey);
+    padding-top: 100px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.continents{
+    background-position: center;
+    background: url(/images/backgrounds/beach.jpg);
+    padding: 20px;
+    background-size: cover;
+    border-radius: 10px;
+    width: 200px;
+    height: 500px;
+}
+
+.card{
+    height: 200px;
+    color: var(--dark);
+    font-family: 'Oswald', sans-serif;
+    border-radius: 50px;
+    font-size:xx-large;
+    text-align:center;
+    border-style:ridge;
+}
+
+.continent-name{
+    padding-top: 75px;
+    text-transform: uppercase;
+}
+
+
+

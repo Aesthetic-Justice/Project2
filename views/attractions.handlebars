@@ -1,0 +1,11 @@
+<section>
+<header class="city-name">{{cities.name}}</header>
+<div class="column">
+ <section class="flex-row justify-center">
+    {{#each cities.attractions as |attraction|}}
+    {{> attraction-details}}
+    {{/each}}
+  </section>
+  </div>
+</div>
+</section>
