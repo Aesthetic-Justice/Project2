@@ -1,6 +1,6 @@
-<section>
-<h3 class="continents-name">{{continents.name}}</h3>
-<div class="column is-half">
+<div class="card">
+  <div class="card-content">
+<h3 class="card-name">{{continents.name}}</h3>
  <section class="flex-row justify-center">
     {{#each continents.countries as |country|}}
     {{> country}}
@@ -8,4 +8,3 @@
   </section>
   </div>
 </div>
-</section>

@@ -1,64 +1,80 @@
 :root {
-    --dark:rgb(58, 53, 53);
+    --dark: rgb(58, 53, 53);
     --light: white;
-    --grey: grey; 
+    --grey: grey;
 }
 
-html{
-    background-color:var(--dark);
+html {
+    background-color: var(--dark);
 }
-main{
+
+main {
     margin-top: 2%;
 }
 
-.navbar{ 
-    background-color:rgba(0, 0, 0, 0.614);
+.navbar {
+    background-color: rgba(0, 0, 0, 0.614);
     font-style: oblique;
     padding: 20px;
 
 }
+#logout {
+    margin-top: 30px;
+}
 
-.web-header{ 
-    padding: 20px;
+.web-header {
+    padding: 10px;
     color: var(--light);
     border-radius: 10px;
     font-family: 'Oswald', sans-serif;
+    font-size: 50px;
 
 }
 
-.description{
+.aside{
+    border-style: double;
+    border-width: 10px;
+}
+
+.description {
     font-family: 'Oswald', sans-serif;
-    font-size:x-large;
+    font-size: xx-large;
     color: var(--grey);
     padding-top: 100px;
     padding-right: 20px;
     padding-left: 20px;
 }
 
-.continents{
+.continents {
     background-position: center;
+    height:600px;
     background: url(/images/backgrounds/beach.jpg);
     padding: 20px;
     background-size: cover;
     border-radius: 10px;
-    width: 200px;
-    height: 500px;
+    border-style:double;
 }
 
-.card{
-    height: 200px;
+.card {
+    width: fit-content;
+    margin: auto;
+    width: 60%;
+    border: 3px solid var(--dark);
+    margin:auto;
+    padding: 10px;
+    border-radius: 20px;
     color: var(--dark);
     font-family: 'Oswald', sans-serif;
-    border-radius: 50px;
-    font-size:xx-large;
-    text-align:center;
-    border-style:ridge;
+    font-size: x-large;
+    text-align: center;
+    border-style: ridge;
 }
 
-.continent-name{
-    padding-top: 75px;
-    text-transform: uppercase;
+.card-name {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: xx-large;
+    text-align: center;
+   text-decoration: underline;
 }
-
-
-
