@@ -4,7 +4,7 @@ const withAuth = require(`../utils/auth`);
 const { Continent, Country, City, Attraction } = require('../models');
 
 //get all continents for homepage
-router.get('/', withAuth ,async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const dbContinents = await Continent.findAll({
             include: [
@@ -29,7 +29,7 @@ router.get('/', withAuth ,async (req, res) => {
 });
 
 // Get one continent
-router.get('/continent/:id', withAuth , async (req, res) => {
+router.get('/continent/:id', withAuth, async (req, res) => {
     try {
         const dbContinents = await Continent.findByPk(req.params.id, {
 
@@ -49,7 +49,7 @@ router.get('/continent/:id', withAuth , async (req, res) => {
 });
 
 //get all countries for homepage // WORKS 
-router.get('/country/', withAuth , async (req, res) => {
+router.get('/country/', withAuth, async (req, res) => {
     try {
         const dbCountry = await Country.findAll({
             include: [
@@ -74,7 +74,7 @@ router.get('/country/', withAuth , async (req, res) => {
 });
 
 //Get one country for homepage
-router.get('/country/:id', withAuth , async (req, res) => {
+router.get('/country/:id', withAuth, async (req, res) => {
     try {
         const dbCountries = await Country.findByPk(req.params.id, {
             include: [
@@ -93,7 +93,7 @@ router.get('/country/:id', withAuth , async (req, res) => {
 });
 
 //get all cities for homepage 
-router.get('/cities/', withAuth , async (req, res) => {
+router.get('/cities/', withAuth, async (req, res) => {
     try {
         const dbCities = await City.findAll({
             include: [
@@ -117,7 +117,7 @@ router.get('/cities/', withAuth , async (req, res) => {
 });
 
 // Get one city // MAYBE WORKS - FIX GET ERROR
-router.get('/city/:id', withAuth , async (req, res) => {
+router.get('/city/:id', withAuth, async (req, res) => {
     try {
         const dbCities = await City.findByPk(req.params.id, {
             include: [
@@ -142,7 +142,7 @@ router.get('/city/:id', withAuth , async (req, res) => {
 });
 
 //get all attractions for homepage 
-router.get('/attractions', withAuth , async (req, res) => {
+router.get('/attractions', withAuth, async (req, res) => {
     try {
         const dbAttractions = await Attraction.findAll();
 
@@ -160,7 +160,7 @@ router.get('/attractions', withAuth , async (req, res) => {
 });
 
 // Get one attraction 
-router.get('/attraction/:id', withAuth , async (req, res) => {
+router.get('/attraction/:id', withAuth, async (req, res) => {
     try {
         const dbAttractions = await Attraction.findByPk(req.params.id, {
             include: [
@@ -181,7 +181,7 @@ router.get('/attraction/:id', withAuth , async (req, res) => {
 });
 
 //
-router.get('/attractions/add', withAuth , async (req, res) => {
+router.get('/attractions/add', withAuth, async (req, res) => {
     try {
         const dbCities = await City.findAll();
         const cities = dbCities.map(city => city.get({ plain: true }));
@@ -199,9 +199,9 @@ router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
-    }
-
-    res.render('login');
+      }
+    
+      res.render('login');
 });
 
 module.exports = router;
