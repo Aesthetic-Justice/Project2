@@ -3,17 +3,18 @@
     <option>Select city</option>
 {{#each cities as |city|}}
     <option class="city-name">{{name}}</option>
+    {{/each}}
   </select>
 </div>
-{{/each}}
+
 <div class="select">
   <select>
     <option>Attraction Type</option>
 {{#each attractions as |attraction|}}
     <option class="location-type">{{location_type}}</option>
+    {{/each}}
   </select>
 </div>
-{{/each}}
 <input class="input" type="link" placeholder="link input">
 <textarea class="textarea description" placeholder="Description of attraction"></textarea>
 <button class="button" type="submit">Add New Attraction</button>

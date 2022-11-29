@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         );
         res.render('homepage', {
             allContinents,
-            loggedIn: req.session.loggedIn,
+            loggedIn: true,
         });
     } catch (err) {
         console.log(err);
@@ -179,6 +179,20 @@ router.get('/attraction/:id', async (req, res) => {
     }
 });
 
+//
+router.get('/attractions/add', async (req, res)=>{
+    try {
+        const dbCities= await City.findAll();
+        const cities = dbCities.map(city=>city.get({plain:true}));
+        const dbAttractions = await Attraction.findAll({attributes: ['location_type'], group:"location_type"});
+        const attractions = dbAttractions.map(attraction=>attraction.get({plain:true}));
+        res.render('addAttraction',{cities, attractions} );
+    } catch(err){
+        console.log(err);
+        res.render('error', {err});
+    }
+   
+})
 // Login route
 router.get('/login', (req, res) => {
     console.log(req.session.loggedIn);
