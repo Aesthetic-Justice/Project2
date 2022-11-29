@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: Country,
-                    attributes: ['id', 'name',],
+                    attributes: ['id', 'name','continent_id'],
                 },
             ],
         });
@@ -35,10 +35,7 @@ router.get('/continent/:id', async (req, res) => {
             include: [
                 {
                     model: Country,
-                    attributes: [
-                        'id',
-                        'name',
-                    ],
+                    attributes: ['id', 'name','continent_id'],
                 },
             ],
         });
@@ -57,7 +54,7 @@ router.get('/country/', async (req, res) => {
             include: [
                 {
                     model: City,
-                    attributes: ['id', 'name'],
+                    attributes: ['id', 'name',`country_id`],
                 },
             ],
         });
@@ -82,10 +79,7 @@ router.get('/country/:id', async (req, res) => {
             include: [
                 {
                     model: City,
-                    attributes: [
-                        'id',
-                        'name',
-                    ],
+                    attributes: ['id', 'name',`country_id`],
                 },
             ],
         });
@@ -108,7 +102,6 @@ router.get('/cities/', async (req, res) => {
                 },
             ],
         });
-
         const allCities = dbCities.map((cities) =>
             cities.get({ plain: true })
         );
