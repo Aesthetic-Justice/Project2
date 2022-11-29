@@ -3,8 +3,11 @@
     <div class="/attraction/{{id}}">
       <header>{{attractions.name}}</header>
     </div>
-      <img src="/images/{{attractions.filename}}" alt="{{attractions.description}}">
+    <div class="card-body">
+      <img src="/images/attractions/{{attractions.city.name}}/{{attractions.filename}}" alt="{{attractions.name}}" style="width:150px;height:150px;">
       <p>{{attractions.description}}</p>
-      <a>{{attractions.link}}</a>
+      <a href="{{attractions.link}}">{{attractions.name}} webpage</a>
+    </div>
   </div>
 </div>
+
