@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Attraction = require('../../models')
+const { Attraction } = require('../../models')
 
 router.post('addAttractions', async (req, res) => {
     try {
