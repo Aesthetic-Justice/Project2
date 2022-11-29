@@ -1,7 +1,6 @@
 const router = require('express').Router();
-//const Post = require("../../models/Post")
 
-router.post('/post', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const dbPostData = await Post.create({
             title: req.body.title,
@@ -16,7 +15,7 @@ router.post('/post', async (req, res) => {
     }
 });
 
-router.delete('/post/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const dbPostData = await Post.destroy({
             where: {
@@ -29,3 +28,5 @@ router.delete('/post/:id', async (req, res) => {
         res.status(500).json(err)
     }
 });
+
+module.exports = router

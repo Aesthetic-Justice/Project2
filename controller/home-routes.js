@@ -2,14 +2,14 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Continent, Country, City, Attraction } = require('../models');
 
-//get all continents for homepage
+//get all continents for homepage // WORKS
 router.get('/', async (req, res) => {
     try {
         const dbContinents = await Continent.findAll({
             include: [
                 {
                     model: Country,
-                    attributes: ['id', 'name',],
+                    attributes: ['id', 'name','continent_id'],
                 },
             ],
         });
@@ -29,19 +29,17 @@ router.get('/', async (req, res) => {
 
 // Get one continent
 router.get('/continent/:id', async (req, res) => {
-    try{
-        const dbContinents = await Continent.findByPk(req.params.id,{
+    try {
+        const dbContinents = await Continent.findByPk(req.params.id, {
+
             include: [
                 {
                     model: Country,
-                    attributes: [
-                        'id',
-                        'name',
-                    ],
+                    attributes: ['id', 'name','continent_id'],
                 },
             ],
         });
-        const continents = dbContinents.get({ plain: true });
+        const continents = dbContinents?.get({ plain: true });
         res.render('continents', { continents, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.log(err);
@@ -49,14 +47,14 @@ router.get('/continent/:id', async (req, res) => {
     }
 });
 
-//get all countries for homepage
+//get all countries for homepage // WORKS 
 router.get('/country/', async (req, res) => {
     try {
         const dbCountry = await Country.findAll({
             include: [
                 {
                     model: City,
-                    attributes: ['id', 'name', 'continent_id'],
+                    attributes: ['id', 'name',`country_id`],
                 },
             ],
         });
@@ -76,38 +74,34 @@ router.get('/country/', async (req, res) => {
 
 //Get one country for homepage
 router.get('/country/:id', async (req, res) => {
-    try{
-        const dbCountries = await Country.findByPk(req.params.id,{
+    try {
+        const dbCountries = await Country.findByPk(req.params.id, {
             include: [
                 {
-                    model: cities,
-                    attributes: [
-                        'id',
-                        'name',
-                    ],
+                    model: City,
+                    attributes: ['id', 'name',`country_id`],
                 },
             ],
         });
-    const country = dbCountries.get({ plain: true});
+        const country = dbCountries.get({ plain: true });
         res.render('country', { country, loggedIn: req.session.loggedIn });
-    }catch (err) {
+    } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
 
-//get all cities for homepage
+//get all cities for homepage // HANDLEBARS ISSUE - EACH DOESNT MATCH
 router.get('/cities/', async (req, res) => {
     try {
         const dbCities = await City.findAll({
             include: [
                 {
                     model: Attraction,
-                    attributes: ['id', 'name', 'filename'],   
+                    attributes: ['id', 'name', 'filename'],
                 },
             ],
         });
-
         const allCities = dbCities.map((cities) =>
             cities.get({ plain: true })
         );
@@ -121,17 +115,19 @@ router.get('/cities/', async (req, res) => {
     }
 });
 
-// Get one city
-router.get('/cities/:id', async (req, res) => {
-    try{
-        const dbCities = await City.findByPk(req.params.id,{
+// Get one city // MAYBE WORKS - FIX GET ERROR
+router.get('/city/:id', async (req, res) => {
+    try {
+        const dbCities = await City.findByPk(req.params.id, {
             include: [
                 {
                     model: Attraction,
                     attributes: [
                         'id',
                         'name',
-                        'country_id'
+                        'filename'
+
+
                     ],
                 },
             ],
@@ -144,22 +140,15 @@ router.get('/cities/:id', async (req, res) => {
     }
 });
 
-//get all attractions for homepage
-router.get('/attractions/', async (req, res) => {
+//get all attractions for homepage // ATTRACTION TO ATTRACTION ISNT A RELATIONSHIP
+router.get('/attractions', async (req, res) => {
     try {
-        const dbAttractions = await Attraction.findAll({
-            include: [
-                {
-                    model: Attraction,
-                    attributes: ['id', 'name', 'location_type', 'filename', 'description', 'link', 'city_id'],
-                },
-            ],
-        });
+        const dbAttractions = await Attraction.findAll();
 
         const allAttractions = dbAttractions.map((attractions) =>
             attractions.get({ plain: true })
         );
-        res.render('homepage', {
+        res.render('attractions', {
             allAttractions,
             loggedIn: req.session.loggedIn,
         });
@@ -169,21 +158,10 @@ router.get('/attractions/', async (req, res) => {
     }
 });
 
-// Get one attraction
-router.get('/attractions/:id', async (req, res) => {
+// Get one attraction // ATTRACTION TO ATTRACTION ISNT A RELATIONSHIP
+router.get('/attraction/:id', async (req, res) => {
     try {
-        const dbAttractions = await Attraction.findByPk(req.params.id, {
-            include: [
-                {
-                    model: attractions,
-                    attributes: [
-                        'id',
-                        'name',
-                        'filename'
-                    ],
-                },
-            ],
-        });
+        const dbAttractions = await Attraction.findByPk(req.params.id);
         const attractions = dbAttractions.get({ plain: true });
         res.render('attractions', { attractions, loggedIn: req.session.loggedIn });
     } catch (err) {
@@ -191,87 +169,15 @@ router.get('/attractions/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
-// // get all continents
-// router.get('/', async (req, res) => {
-//     try {
-//         const continentData = await Continent.findAll({
-//             include: [{ model: Country }],
-//             attributes: {
-//               include: [
-//                 [
-
-//                   sequelize.literal(
-//                     '(SELECT (*) FROM continet', function (err, results) {
-//                         console.log(results);
-//                     }),
-//                    'homecontinent',
-//                 ],
-//               ],
-//             },
-//           });
-//     } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-// }
-// });
-
-// // //get all countries
-// router.get('/countries/', async (req, res) => {
-//     try {
-//         const countryData = await Country.findAll({
-//             include: [{ model: Continent }, { model: City }],
-//             attributes: {
-//               include: [
-//                 [
-
-//                   sequelize.literal(
-//                     '(SELECT (*) FROM country INNER JOIN continent ON country.continent_id=continent.id)'
-//                   ),
-//                    'homecontinent',
-//                 ],
-//               ],
-//             },
-//           });
-//     } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-// }
-// });
-
-
-
-// // //get all cities
-// router.get('/cities/:id', async (req, res) => {
-//     try{
-//         const cityData  = await City.findByPk(req.params.id,{
-//             include: [{model: City}, {model: Attractions}],
-//             attributes: {
-//                 include: [ 
-//                     [
-//                         sequelize.literal(
-//                             '(SELECT (*) FROM attraction WHERE city.id=city_id)'
-//                         ),
-//                         'numAttraction',
-//                     ],
-//                 ],
-//             },
-//         });
-//     } catch (err) {
-//             console.log(err);
-//             res.status(500).json(err);
-//         }
-//     });
-
-
-
 
 // Login route
+// WORKS BUT DOESNT RENDER LOGIN HANDLEBARS
 router.get('/login', (req, res) => {
     console.log(req.session.loggedIn);
-    if(req.session.loggedIn==undefined){
-        req.session.loggedIn=false;
+    if (req.session.loggedIn == undefined) {
+        req.session.loggedIn = false;
     }
-    else if (req.session.loggedIn==true) {
+    else if (req.session.loggedIn == true) {
         res.redirect('/');
         return;
     }
