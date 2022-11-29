@@ -201,16 +201,6 @@ const attractionData = [
     description: `The Louvre or the Louvre Museum is the world's most-visited museum, and historic landmark in Paris, France. 
     It's home to Leonardo da Vinci's Mona Lisa and is considered to be one of the world's greatest art museum. 
     It has an unparalleled collection of items covering the full spectrum of art through the ages.`,
-    link: 'https://www.paris-arc-de-triomphe.fr/en/',
-    city_id: 7
-    },
-    {
-        name: 'The Louvre',
-    location_type: 'Museum',
-    filename: 'louvre.jpg',
-    description: `The Louvre or the Louvre Museum is the world's most-visited museum, and historic landmark in Paris, France. 
-    It's home to Leonardo da Vinci's Mona Lisa and is considered to be one of the world's greatest art museum. 
-    It has an unparalleled collection of items covering the full spectrum of art through the ages.`,
     link: 'https://en.parisinfo.com/paris-museum-monument/71065/Musee-du-Louvre',
     city_id: 7
     },
