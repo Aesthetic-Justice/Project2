@@ -1,9 +1,10 @@
 const router = require('express').Router();
-const Attraction = require('../../models')
+const { Attraction } = require('../../models')
 
-router.post('addAttractions', async (req, res) => {
+router.post('/addAttraction', async (req, res) => {
     try {
         const dbPostData = await Attraction.create({
+            city_id: req.body.city_id,
             name: req.body.name,
             description: req.body.description,
             location_type: req.body.location_type,
@@ -17,7 +18,7 @@ router.post('addAttractions', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const dbPostData = await Post.destroy({
+        const dbPostData = await Attraction.destroy({
             where: {
                 id: req.params.id,
             }
