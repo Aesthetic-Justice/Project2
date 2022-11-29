@@ -6,7 +6,7 @@ const addAttraction = async (event) => {
     const cityName = document.getElementById('city-dropdown');
     const attractionName = document.querySelector('.attraction');
     const attractionType = document.querySelector('.location-type');
-    const description = document.querySelector('.description');
+    const description = document.getElementById('description');
    console.log(cityName.value);
 
     if (cityName && attractionName && attractionType && description) {
