@@ -36,6 +36,11 @@ Follow these steps to install the project:
 * npm i
 * node server.js
 
+![image](/public/images/screenshots%20of%20app/40DB3105-C569-493C-AE0B-C087BFCCB73F.jpeg)
+![image](/public/images/screenshots%20of%20app/80E2E10A-DBFC-487B-BB52-BF9FD295899E.jpeg)
+![image](/public/images/screenshots%20of%20app/B8B34BF8-771F-488F-BAB5-AB743B7EF0F7.jpeg)
+![image](/public/images/screenshots%20of%20app/0E82CEE4-6955-475E-9D47-1B5758713C65.jpeg)
+
 ##Credits
 ---
 Hakim Yussuf
