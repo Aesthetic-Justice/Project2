@@ -36,12 +36,12 @@ Follow these steps to install the project:
 * npm i
 * node server.js
 
-##Credits
+## Credits
 ---
 Hakim Yussuf
 Katie Wilson
 Heela Qayumie
 
-##Questions
+## Questions
 ---
 If you have any questions and/or would like to share your comments Please open an issue or contact us at heela.qayumie@gmail.com
